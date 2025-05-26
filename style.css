@@ -10,7 +10,6 @@
     --radius: .625rem; /* 10px */
 
     --font-size-base: .875rem; /* 14px */ 
-    --font-size-sm: .813rem; /* 12px */
 }
 
 @layer boilerplate {
@@ -52,7 +51,7 @@
     .container {
         display: flex;
         flex-direction: column;
-        width: min(90%, 380px);
+        width: min(90%, 23.75rem);
     }
 }
 
@@ -107,7 +106,12 @@
             transition: 200ms ease-in-out;
             transition-property: color, background-color;
 
-            &:hover, &:active {
+            @media (prefers-reduced-motion: reduce) {
+                transition: none !important;
+            }
+
+            &:hover, 
+            &:active {
                 background-color: var(--color-green);
                 color: var(--color-grey-800);
             }
