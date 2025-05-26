@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --color-green: hsl(75, 94%, 57%);
+    --color-grey-700: hsl(0, 0%, 20%);
+    --color-grey-800: hsl(0, 0%, 12%);
+    --color-grey-900: hsl(0, 0%, 8%);
+    --color-white: hsl(0, 0%, 100%);
+
+    --radius: .625rem; /* 10px */
+
+    --font-size-base: .875rem; /* 14px */ 
+    --font-size-sm: .813rem; /* 12px */
+}
+
+@layer boilerplate {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body, main, h1, h2, h3, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        font-size: var(--font-size-base);
+        font-weight: 400;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        color: var(--color-white);
+        text-decoration: none;
+    }
+}
+
+@layer layout {
+    .profile {
+        display: grid;
+        background-color: var(--color-grey-900);
+        place-items: center;
+        height: 100dvh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: min(90%, 380px);
+    }
+}
+
+@layer utilities {
+    .social-card {
+        background-color: var(--color-grey-800);
+        border-radius: var(--radius);
+        color: var(--color-white);
+        text-align: center;
+        font-family: "Inter", Arial, Helvetica, sans-serif;
+        padding-block: 2.5rem 2rem; 
+        padding-inline: 2.5rem; 
+    }
+
+    .social-card__info-image {
+        border-radius: 100%;
+    }
+
+    .social-card__info-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-block: 1.5rem .5rem;
+    }
+
+    .social-card__info-city {
+        font-size: .9rem;
+        color: var(--color-green);
+        font-weight: 600;
+        margin-block-end: 1.8rem;
+    }
+
+    .social-card__info-job {
+        margin-block-end: 1.5rem;
+    }
+
+    .social-card__links {
+        display: flex;
+        flex-direction: column;
+        row-gap: .8rem;
+    }
+
+    .social-card__link {
+        font-size: var(--font-size-base);
+        line-height: 1;
+
+        > a {
+            background-color: var(--color-grey-700);
+            border-radius: var(--radius);
+            display: block;
+            padding-block: 1rem;
+            font-weight: 700;
+            transition: 200ms ease-in-out;
+            transition-property: color, background-color;
+
+            &:hover, &:active {
+                background-color: var(--color-green);
+                color: var(--color-grey-800);
+            }
+        }
+    }
+}
